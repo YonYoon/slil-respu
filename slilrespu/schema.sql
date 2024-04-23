@@ -1,0 +1,3 @@
+CREATE TABLE IF NOT EXISTS quotes (
+    content TEXT NOT NULL
+);
