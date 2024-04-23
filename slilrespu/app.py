@@ -22,8 +22,13 @@ init_db()
 
 @app.route("/")
 def index():
+    quote = get_random_quote()
+    return render_template('index.html', quote=quote)
+
+
+def get_random_quote():
     conn = get_db_connection()
     quotes = conn.execute('SELECT * FROM quotes').fetchall()
     conn.close()
     quote = random.choice(quotes)
-    return render_template('index.html', quote=quote[0])
+    return quote[0]
