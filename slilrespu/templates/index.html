@@ -8,29 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
-    <script>
-
-      document.addEventListener('DOMContentLoaded', async function() {
-        let image_response = await fetch('/image');
-        let image_name = await image_response.json();
-        var bgDiv = document.createElement("div");
-
-        // Apply necessary styles to the div
-        bgDiv.style.position = "fixed";
-        bgDiv.style.top = "0";
-        bgDiv.style.left = "0";
-        bgDiv.style.width = "100%";
-        bgDiv.style.height = "100%";
-        bgDiv.style.zIndex = "-1";
-        bgDiv.style.backgroundImage = `url('../static/images/${image_name}')`;
-        bgDiv.style.backgroundSize = "cover";
-        bgDiv.style.filter = "brightness(60%)";
-
-        // Append the div to the body
-        document.body.appendChild(bgDiv);
-      });
-
-  </script>
+    <script src="../static/script.js"></script>
 </head>
 <body>
     <header>
@@ -46,23 +24,7 @@
             let quote = await response.json();
             document.querySelector('h1').innerText = quote;
 
-            let image_response = await fetch('/image');
-            let image_name = await image_response.json();
-            var bgDiv = document.createElement("div");
-
-            // Apply necessary styles to the div
-            bgDiv.style.position = "fixed";
-            bgDiv.style.top = "0";
-            bgDiv.style.left = "0";
-            bgDiv.style.width = "100%";
-            bgDiv.style.height = "100%";
-            bgDiv.style.zIndex = "-1";
-            bgDiv.style.backgroundImage = `url('../static/images/${image_name}')`;
-            bgDiv.style.backgroundSize = "cover";
-            bgDiv.style.filter = "brightness(60%)";
-
-            // Append the div to the body
-            document.body.appendChild(bgDiv);
+            addBackground()
         });
     </script>
 </body>
