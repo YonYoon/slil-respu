@@ -25,7 +25,7 @@ init_db()
 def index():
     json_quote = get_random_quote()
     quote = json.loads(json_quote.data)
-    return render_template('index.html', quote=quote[1])
+    return render_template('index.html', quote=quote)
 
 
 @app.route("/get")
@@ -34,5 +34,5 @@ def get_random_quote():
     quotes = conn.execute('SELECT * FROM quotes').fetchall()
     conn.close()
     quote = random.choice(quotes)
-    json_quote = jsonify(quote)
+    json_quote = jsonify(quote[1].upper())
     return json_quote

@@ -21,7 +21,7 @@
         quote.addEventListener('click', async function() {
             let response = await fetch('/get');
             let quote = await response.json();
-            document.querySelector('h1').innerText = quote[1];
+            document.querySelector('h1').innerText = quote;
         });
     </script>
 </body>
