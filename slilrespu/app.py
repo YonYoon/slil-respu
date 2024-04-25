@@ -25,7 +25,7 @@ init_db()
 def index():
     json_quote = get_random_quote()
     quote = json.loads(json_quote.data)
-    return render_template('index.html', quote=quote[0])
+    return render_template('index.html', quote=quote[1])
 
 
 @app.route("/get")
