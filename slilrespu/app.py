@@ -1,4 +1,5 @@
 import json
+import os
 import random
 import sqlite3
 
@@ -35,3 +36,14 @@ def get_random_quote():
     quote = random.choice(quotes)
     json_quote = jsonify(quote[1].upper())
     return json_quote
+
+
+@app.route("/image")
+def get_random_image():
+    current_directory = os.path.dirname(__file__)
+    relative_path = 'static/images/'
+    directory = os.path.join(current_directory, relative_path)
+    image_names = os.listdir(directory)
+    image_name = random.choice(image_names)
+    json_name = jsonify(image_name)
+    return json_name
