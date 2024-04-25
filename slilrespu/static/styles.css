@@ -18,7 +18,7 @@ body {
     font-family: "Oswald", sans-serif;
     color: white;
     font-optical-sizing: auto;
-    font-weight: 400;
+    font-weight: 350;
     font-style: normal;
     background-size: cover;
     background-position: center;
@@ -28,6 +28,7 @@ header {
     position: absolute;
     top: 0;
     width: 100%;
+    padding: 50px;
 }
 
 a {
