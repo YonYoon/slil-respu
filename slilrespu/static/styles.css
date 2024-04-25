@@ -9,6 +9,7 @@ h1 {
     text-align: center;
     font-size: 100px;
     font-weight: 500;
+    cursor: pointer;
 }
 
 body {
