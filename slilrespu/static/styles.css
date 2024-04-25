@@ -8,15 +8,30 @@
 h1 {
     text-align: center;
     font-size: 100px;
-    font-weight: 400;
+    font-weight: 500;
 }
 
 body {
-  font-family: "Oswald", sans-serif;
-  color: white;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-  background-size: cover;
-  background-position: center;
+    height: 100%;
+    margin: 0;
+    font-family: "Oswald", sans-serif;
+    color: white;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    background-size: cover;
+    background-position: center;
+}
+
+header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+a {
+    text-decoration: none; 
+    color: inherit;
+    background-color: transparent;
+    border: none;
 }
