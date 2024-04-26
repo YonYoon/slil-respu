@@ -43,7 +43,25 @@
             });
         });
 
-        addBackground()
+        let image_response = await fetch('/image');
+        let image_name = await image_response.json();
+        let bgDiv = document.querySelector('.bg')
+
+        bgDiv.classList.add('fadeOut');
+        
+        // Listen for animationend event
+        bgDiv.addEventListener('animationend', function() {
+            // After slideIn animation ends, remove 'fadeIn' class
+            // and add 'fadeOut' class to trigger fadeOut animation
+            bgDiv.classList.remove('fadeOut');
+            bgDiv.style.backgroundImage = `url('../static/images/${image_name}')`;
+            bgDiv.classList.add('fadeIn');
+            
+            // Remove the 'fadeOut' class after fadeOut animation ends
+            bgDiv.addEventListener('animationend', function() {
+                bgDiv.classList.remove('fadeIn');
+            });
+        });
       });
     </script>
 </body>

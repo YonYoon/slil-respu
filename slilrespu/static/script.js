@@ -4,6 +4,7 @@ async function addBackground() {
     let image_response = await fetch('/image');
     let image_name = await image_response.json();
     var bgDiv = document.createElement("div");
+    bgDiv.classList.add('bg')
 
     // Apply necessary styles to the div
     bgDiv.style.position = "fixed";
@@ -18,4 +19,8 @@ async function addBackground() {
 
     // Append the div to the body
     document.body.appendChild(bgDiv);
+    bgDiv.classList.add('fadeIn');
+    bgDiv.addEventListener('animationend', function() {
+        bgDiv.classList.remove('fadeIn');
+    });
 }
