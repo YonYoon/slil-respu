@@ -31,6 +31,11 @@ def index():
     return render_template('index.html', quote=quote)
 
 
+@app.route("/about")
+def about():
+    return render_template('about.html')
+
+
 @app.route("/get")
 def get_random_quote():
     global current_quote
@@ -50,7 +55,7 @@ def get_random_quote():
 @app.route("/image")
 def get_random_image():
     global current_image
-    
+
     current_directory = os.path.dirname(__file__)
     relative_path = 'static/images/'
     directory = os.path.join(current_directory, relative_path)
