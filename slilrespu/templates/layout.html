@@ -8,12 +8,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
-    <script src="../static/script.js"></script>
+    {% block script %}{% endblock %}
+    
 </head>
 <body>
     <header>
         <a href="/">СЛИЛ РЕСПУ</a>
-        <a href="/">О САЙТЕ</a>
+        <a href="/about">О САЙТЕ</a>
     </header>
     {% block body %}{% endblock %}
 </body>
