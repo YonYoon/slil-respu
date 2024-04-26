@@ -16,17 +16,35 @@
         <a href="/">О САЙТЕ</a>
     </header>
     <div id="quote">
-        <h1>{{ quote }}</h1>
+        <h1 class="appear">{{ quote }}</h1>
     </div>
     <script>
-        let quote = document.querySelector('#quote');
-        quote.addEventListener('click', async function() {
-            let response = await fetch('/get');
-            let quote = await response.json();
-            document.querySelector('h1').innerText = quote;
+      let quote = document.querySelector('#quote');
+      quote.addEventListener('click', async function() {
+        let response = await fetch('/get');
+        let quoteContent = await response.json();
 
-            addBackground()
+        if (quote.classList.contains('appear') || quote.classList.contains('disappear')) return;
+    
+        // Add 'appear' class to trigger slideIn animation
+        quote.classList.add('disappear');
+        
+        // Listen for animationend event
+        quote.addEventListener('animationend', async function() {
+            // After slideIn animation ends, remove 'appear' class
+            // and add 'disappear' class to trigger fadeOut animation
+            quote.classList.remove('disappear');
+            document.querySelector('h1').innerText = quoteContent;
+            quote.classList.add('appear');
+            
+            // Remove the 'disappear' class after fadeOut animation ends
+            quote.addEventListener('animationend', function() {
+                quote.classList.remove('appear');
+            });
         });
+
+        addBackground()
+      });
     </script>
 </body>
 </html>
